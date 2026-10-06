@@ -24,7 +24,7 @@ export function Breadcrumbs({
               {isLast ? (
                 <span
                   aria-current="page"
-                  className={dark ? "text-white/70" : "text-ink-500"}
+                  className={dark ? "text-white" : "text-ink-500"}
                 >
                   {item.name}
                 </span>
@@ -33,8 +33,8 @@ export function Breadcrumbs({
                   href={item.href}
                   className={
                     dark
-                      ? "text-white/90 hover:text-white"
-                      : "text-ink-700 hover:text-primary-600"
+                      ? "text-ink-300 transition-colors hover:text-white"
+                      : "text-ink-600 transition-colors hover:text-primary-600"
                   }
                 >
                   {item.name}

@@ -4,11 +4,11 @@ export function Logo({ className = "", dark = false }: { className?: string; dar
   return (
     <Link
       href="/"
-      className={`group inline-flex items-center gap-2.5 text-lg font-bold tracking-tight ${dark ? "text-white" : "text-ink-900"} ${className}`}
+      className={`group inline-flex items-center gap-2.5 font-display text-lg font-extrabold ${dark ? "text-white" : "text-ink-950"} ${className}`}
       aria-label="SEO Grading — Home"
     >
       <span
-        className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm shadow-primary-600/30 transition-transform duration-300 ease-out group-hover:-rotate-6 group-hover:scale-105"
+        className="flex size-9 items-center justify-center rounded-lg bg-primary-600 text-white transition-transform duration-300 ease-out-soft group-hover:-rotate-6"
         aria-hidden="true"
       >
         <svg viewBox="0 0 24 24" fill="none" className="size-5">
@@ -29,10 +29,7 @@ export function Logo({ className = "", dark = false }: { className?: string; dar
         </svg>
       </span>
       <span>
-        SEO{" "}
-        <span className={dark ? "text-primary-400" : "text-primary-600"}>
-          Grading
-        </span>
+        SEO <span className={dark ? "text-primary-400" : "text-primary-600"}>Grading</span>
       </span>
     </Link>
   );

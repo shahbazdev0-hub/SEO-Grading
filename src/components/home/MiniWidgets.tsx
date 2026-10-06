@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 
 function WidgetChip({ children }: { children: ReactNode }) {
   return (
-    <div className="relative overflow-hidden rounded-xl border border-white/10 bg-ink-950 p-4">
+    <div className="relative overflow-hidden rounded-xl bg-ink-950 p-4">
       <div
-        className="pointer-events-none absolute inset-0 opacity-20"
+        className="pointer-events-none absolute inset-0 opacity-10"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
@@ -33,7 +33,7 @@ export function MiniBarChart({ label }: { label: string }) {
             whileInView={{ height: `${h}%` }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
-            className="flex-1 rounded-t-sm bg-gradient-to-t from-primary-600 to-accent-400"
+            className="flex-1 rounded-t-sm bg-gradient-to-t from-primary-600 to-primary-400"
           />
         ))}
       </div>
@@ -50,8 +50,8 @@ export function MiniLineChart({ label }: { label: string }) {
       <svg viewBox="0 0 130 48" className="h-16 w-full" fill="none" aria-hidden="true">
         <defs>
           <linearGradient id="miniLineGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#38bdf8" />
-            <stop offset="100%" stopColor="#8b5cf6" />
+            <stop offset="0%" stopColor="#93b1f8" />
+            <stop offset="100%" stopColor="#3a68ec" />
           </linearGradient>
         </defs>
         <motion.path
@@ -97,8 +97,8 @@ export function MiniRadialProgress({ label, icon }: { label: string; icon: React
           />
           <defs>
             <linearGradient id="miniRadialGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="#8b5cf6" />
+              <stop offset="0%" stopColor="#1f4fe0" />
+              <stop offset="100%" stopColor="#3a68ec" />
             </linearGradient>
           </defs>
         </svg>
@@ -128,7 +128,7 @@ export function MiniHealthBars({ label }: { label: string }) {
                 whileInView={{ width: `${bar.value}%` }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="h-full rounded-full bg-gradient-to-r from-primary-500 to-accent-400"
+                className="h-full rounded-full bg-gradient-to-r from-primary-500 to-primary-300"
               />
             </div>
           </div>

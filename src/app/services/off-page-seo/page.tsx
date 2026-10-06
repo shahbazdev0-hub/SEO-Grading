@@ -31,6 +31,7 @@ import { FAQSection } from "@/components/blocks/FAQSection";
 import { CTASection } from "@/components/blocks/CTASection";
 import { RelatedServices } from "@/components/blocks/RelatedServices";
 import { jsonLdScript, serviceSchema, breadcrumbSchema } from "@/lib/schema";
+import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
 
 const title = "Off-Page SEO Services | Authority, Backlinks & Organic Growth";
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
 
 const methods = [
   { icon: LineChart, title: "Backlink Profile Analysis", description: "We review referring domains, link relevance, anchor text patterns, and target pages to establish a baseline for growth." },
-  { icon: Swords, title: "Competitor Research", description: "Competitor backlink profiles reveal relevant publications and opportunities — without simply copying their campaigns." },
+  { icon: Swords, title: "Competitor Research", description: "Competitor backlink profiles reveal relevant publications and opportunities without simply copying their campaigns." },
   { icon: Link2, title: "Relevant Link Acquisition", description: "We look for opportunities where a reference naturally supports readers and fits within the publisher's content." },
   { icon: Handshake, title: "Publisher Outreach", description: "Personalized communication with suitable publishers creates stronger opportunities than generic outreach." },
   { icon: Megaphone, title: "Content Promotion", description: "Original research, guides, and practical resources create natural reasons for other sites to reference your brand." },
@@ -54,7 +55,7 @@ const methods = [
 
 const processSteps = [
   { title: "Website Assessment", description: "We review your authority, key pages, backlink profile, competitors, and existing organic visibility." },
-  { title: "Campaign Planning", description: "We define objectives — strengthening authority, supporting commercial pages, or improving niche visibility." },
+  { title: "Campaign Planning", description: "We define objectives strengthening authority, supporting commercial pages, or improving niche visibility." },
   { title: "Prospect Research", description: "Potential websites are evaluated for topical relevance, content quality, audience fit, and credibility." },
   { title: "Outreach & Content", description: "Outreach and content development begin, built to be original, useful, and appropriate for the publisher's audience." },
   { title: "Placement Review", description: "Published opportunities are reviewed for content quality, context, destination page, and relevance." },
@@ -160,19 +161,21 @@ export default function OffPageSeoPage() {
       <PageHero
         eyebrow="Off-Page SEO Services"
         title="Build Authority and Sustainable Organic Growth"
-        description="Search visibility depends on more than your own content and structure. We strengthen the external signals — relevant link acquisition, publisher outreach, digital PR, and content promotion — that build authority, relevance, and reputation."
+        description="Search visibility depends on more than your own content and structure. We strengthen the external signals relevant link acquisition, publisher outreach, digital PR, and content promotion that build authority, relevance, and reputation."
         breadcrumbs={[
           { name: "Home", href: "/" },
           { name: "Services", href: "/#services" },
           { name: "Off-Page SEO", href: "/services/off-page-seo" },
         ]}
+        image={images.stickyNotes}
+        imageAlt="Team mapping an outreach strategy on a whiteboard"
       />
 
       <Section>
         <Prose>
           <p>
             Off-page SEO services involve activities performed outside your website to improve
-            its authority, reputation, relevance, and organic visibility — including link
+            its authority, reputation, relevance, and organic visibility including link
             acquisition, publisher outreach, digital PR, brand mentions, competitor research, and
             content promotion.
           </p>
@@ -190,7 +193,7 @@ export default function OffPageSeoPage() {
         <SectionHeading
           eyebrow="Our Methods"
           title="What We Do: Off-Page SEO Methods"
-          description="Our approach begins with research rather than immediate outreach — reviewing your website, competitors, existing backlink profile, and search objectives before building a campaign."
+          description="Our approach begins with research rather than immediate outreach reviewing your website, competitors, existing backlink profile, and search objectives before building a campaign."
         />
         <FeatureRows rows={methods} />
       </Section>
@@ -217,7 +220,7 @@ export default function OffPageSeoPage() {
         <SectionHeading
           eyebrow="Packages"
           title="Packages From an Off-Page SEO Company"
-          description="The right package should reflect your website's actual needs rather than a fixed backlink target — structured around authority, competition, target pages, and growth objectives."
+          description="The right package should reflect your website's actual needs rather than a fixed backlink target structured around authority, competition, target pages, and growth objectives."
         />
         <PackageCards packages={packages} />
       </Section>

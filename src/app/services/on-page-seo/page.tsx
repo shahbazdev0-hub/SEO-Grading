@@ -26,6 +26,7 @@ import { FAQSection } from "@/components/blocks/FAQSection";
 import { CTASection } from "@/components/blocks/CTASection";
 import { RelatedServices } from "@/components/blocks/RelatedServices";
 import { jsonLdScript, serviceSchema, breadcrumbSchema } from "@/lib/schema";
+import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
 
 const title = "On-Page SEO Services | Rankings, Traffic & Site Performance";
@@ -82,7 +83,7 @@ const checklist = [
 ];
 
 const chooseProvider = [
-  { icon: Compass, title: "Their Approach", description: "A good provider starts by understanding your website, audience, competitors, and objectives — not generic changes." },
+  { icon: Compass, title: "Their Approach", description: "A good provider starts by understanding your website, audience, competitors, and objectives not generic changes." },
   { icon: ClipboardList, title: "Audits & Reporting", description: "You should clearly understand what was reviewed, what was recommended, and what was completed." },
   { icon: Award, title: "Quality Over Repetition", description: "Modern SEO needs useful content and clear relevance, not excessive keyword stuffing." },
   { icon: BadgeCheck, title: "Relevant Experience", description: "Ask whether the provider has worked with websites similar to yours." },
@@ -120,12 +121,14 @@ export default function OnPageSeoPage() {
       <PageHero
         eyebrow="On-Page SEO Services"
         title="Improve Rankings, Traffic & Website Performance"
-        description="A website can have amazing products, helpful content, and great design — but without strong on-page optimization, none of it reaches the right people. We optimize content, headings, internal links, URLs, images, and metadata so search engines and visitors both understand your pages."
+        description="A website can have amazing products, helpful content, and great design but without strong on-page optimization, none of it reaches the right people. We optimize content, headings, internal links, URLs, images, and metadata so search engines and visitors both understand your pages."
         breadcrumbs={[
           { name: "Home", href: "/" },
           { name: "Services", href: "/#services" },
           { name: "On-Page SEO", href: "/services/on-page-seo" },
         ]}
+        image={images.wireframes}
+        imageAlt="Page layout wireframes being planned on paper"
       />
 
       <Section>
@@ -137,8 +140,8 @@ export default function OnPageSeoPage() {
             entirely within your own site.
           </p>
           <p>
-            The process typically starts with a review of existing pages — titles, meta
-            descriptions, headings, content structure, URLs, internal links, and images — checked
+            The process typically starts with a review of existing pages titles, meta
+            descriptions, headings, content structure, URLs, internal links, and images checked
             against optimal keyword targeting. Search intent matters just as much: a page should
             answer the question behind a search, not simply target a phrase.
           </p>
@@ -149,7 +152,7 @@ export default function OnPageSeoPage() {
         <SectionHeading
           eyebrow="Why It Matters"
           title="Why On-Page SEO Matters for Your Website"
-          description="A page has to be understood by search engines before it can compete for a keyword. Strong on-page work makes a page more relevant, easier to scan, and easier to navigate for real visitors — while helping your business:"
+          description="A page has to be understood by search engines before it can compete for a keyword. Strong on-page work makes a page more relevant, easier to scan, and easier to navigate for real visitors while helping your business:"
         />
         <ChecklistBlock items={whyItMatters} />
       </Section>
@@ -186,7 +189,7 @@ export default function OnPageSeoPage() {
       <RelatedServices exclude="on-page-seo" />
       <CTASection
         title="Give Your Pages a Stronger Foundation"
-        description="Whether you need a few key landing pages optimized or a full site-wide overhaul, let's build a plan around real search intent — not just keywords."
+        description="Whether you need a few key landing pages optimized or a full site-wide overhaul, let's build a plan around real search intent not just keywords."
       />
     </>
   );

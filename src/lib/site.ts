@@ -1,3 +1,5 @@
+import { images } from "./images";
+
 export const siteConfig = {
   name: "SEO Grading",
   shortName: "SEO Grading",
@@ -25,11 +27,13 @@ export interface ServiceSummary {
   navLabel: string;
   title: string;
   shortDescription: string;
+  image: string;
 }
 
 export const services: ServiceSummary[] = [
   {
     key: "guest-posting",
+    image: images.laptopTyping,
     href: "/services/guest-posting",
     navLabel: "Guest Posting",
     title: "Guest Posting Services",
@@ -38,6 +42,7 @@ export const services: ServiceSummary[] = [
   },
   {
     key: "link-insertion-niche-edits",
+    image: images.deskOverhead,
     href: "/services/link-insertion-niche-edits",
     navLabel: "Link Insertion & Niche Edits",
     title: "Link Insertion & Niche Edits",
@@ -46,6 +51,7 @@ export const services: ServiceSummary[] = [
   },
   {
     key: "on-page-seo",
+    image: images.wireframes,
     href: "/services/on-page-seo",
     navLabel: "On-Page SEO",
     title: "On-Page SEO Services",
@@ -54,6 +60,7 @@ export const services: ServiceSummary[] = [
   },
   {
     key: "off-page-seo",
+    image: images.stickyNotes,
     href: "/services/off-page-seo",
     navLabel: "Off-Page SEO",
     title: "Off-Page SEO Services",
@@ -62,6 +69,7 @@ export const services: ServiceSummary[] = [
   },
   {
     key: "technical-seo",
+    image: images.serverRoom,
     href: "/services/technical-seo",
     navLabel: "Technical SEO",
     title: "Technical SEO Services",
@@ -70,6 +78,7 @@ export const services: ServiceSummary[] = [
   },
   {
     key: "white-label-seo",
+    image: images.agencyTeam,
     href: "/services/white-label-seo",
     navLabel: "White Label SEO",
     title: "White Label SEO Services",
@@ -79,13 +88,24 @@ export const services: ServiceSummary[] = [
 ];
 
 export const mainNav = [
-  { label: "Home", href: "/" },
   {
     label: "Services",
     href: "/#services",
     children: services.map((s) => ({ label: s.navLabel, href: s.href })),
   },
+  { label: "Packages", href: "/packages" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Blogs", href: "/blogs" },
   { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+] as const;
+
+export const companyLinks = [
+  { label: "About Us", href: "/about" },
+  { label: "Packages", href: "/packages" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Our Process", href: "/#process" },
   { label: "Contact", href: "/contact" },
 ] as const;
 

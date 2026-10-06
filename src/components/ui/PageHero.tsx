@@ -1,12 +1,26 @@
 "use client";
 
-import { ReactNode, useRef } from "react";
-import { motion, useMotionValue, useMotionTemplate } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { ReactNode } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { Container } from "./Container";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { Button } from "./Button";
-import { AuroraBackground } from "./AuroraBackground";
+import { Eyebrow } from "./Eyebrow";
+import { Highlight } from "./Highlight";
+
+const ease = [0.22, 1, 0.36, 1] as const;
+
+function renderTitle(title: ReactNode) {
+  if (typeof title !== "string") return title;
+  const words = title.split(" ");
+  const cut = Math.max(1, words.length - (words.length > 6 ? 3 : 2));
+  return (
+    <>
+      {words.slice(0, cut).join(" ")} <Highlight delay={0.35}>{words.slice(cut).join(" ")}</Highlight>
+    </>
+  );
+}
 
 export function PageHero({
   eyebrow,
@@ -15,6 +29,8 @@ export function PageHero({
   breadcrumbs,
   primaryCta = { label: "Get Free Consultation", href: "/contact" },
   secondaryCta,
+  image,
+  imageAlt = "",
 }: {
   eyebrow?: string;
   title: ReactNode;
@@ -22,58 +38,46 @@ export function PageHero({
   breadcrumbs: { name: string; href: string }[];
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
+  image?: string;
+  imageAlt?: string;
 }) {
-  const ref = useRef<HTMLElement>(null);
-  const spotX = useMotionValue(75);
-  const spotY = useMotionValue(10);
-  const spotBackground = useMotionTemplate`radial-gradient(560px circle at ${spotX}% ${spotY}%, rgba(59,130,246,0.18), transparent 70%)`;
-
-  function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
-    const el = ref.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    spotX.set(((e.clientX - rect.left) / rect.width) * 100);
-    spotY.set(((e.clientY - rect.top) / rect.height) * 100);
-  }
-
   return (
-    <section ref={ref} onMouseMove={handleMouseMove} className="relative overflow-hidden bg-ink-950">
-      <AuroraBackground variant="dark" />
-      <motion.div
-        className="pointer-events-none absolute inset-0"
-        style={{ background: spotBackground }}
+    <section className="relative overflow-hidden rounded-b-[2rem] bg-ink-950 sm:rounded-b-[2.5rem]">
+      <div className="bg-grid-dark mask-fade-b pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute -top-40 right-0 h-[28rem] w-[40rem] rounded-full bg-primary-600/25 blur-[120px]"
         aria-hidden="true"
       />
-      <div className="bg-grain pointer-events-none absolute inset-0" aria-hidden="true" />
 
-      <Container className="relative py-16 sm:py-20 lg:py-24">
-        <Breadcrumbs items={breadcrumbs} dark />
+      <Container
+        className={`relative grid grid-cols-1 items-center gap-12 pt-10 pb-16 sm:pt-12 sm:pb-20 ${image ? "lg:grid-cols-[1.1fr_1fr] lg:gap-16" : ""}`}
+      >
+        <div className="max-w-2xl">
+          <Breadcrumbs items={breadcrumbs} dark />
 
-        <div className="mt-8 max-w-3xl">
           {eyebrow && (
-            <motion.span
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-primary-300 backdrop-blur-sm"
+              transition={{ duration: 0.5, ease }}
+              className="mt-8"
             >
-              <Sparkles className="size-3.5" aria-hidden="true" />
-              {eyebrow}
-            </motion.span>
+              <Eyebrow dark>{eyebrow}</Eyebrow>
+            </motion.div>
           )}
           <motion.h1
-            initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-5 text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-[3.6rem] lg:leading-[1.08]"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.08, ease }}
+            className="mt-5 text-balance text-[2.25rem] font-extrabold leading-[1.1] text-white sm:text-5xl lg:text-[3.4rem]"
           >
-            {title}
+            {renderTitle(title)}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-balance text-lg leading-relaxed text-ink-300 sm:text-xl"
+            transition={{ duration: 0.6, delay: 0.16, ease }}
+            className="mt-6 text-base leading-relaxed text-ink-300 sm:text-lg"
           >
             {description}
           </motion.p>
@@ -81,10 +85,10 @@ export function PageHero({
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-9 flex flex-wrap items-center gap-4"
+            transition={{ duration: 0.6, delay: 0.24, ease }}
+            className="mt-8 flex flex-wrap items-center gap-3"
           >
-            <Button href={primaryCta.href} size="lg" magnetic>
+            <Button href={primaryCta.href} size="lg">
               {primaryCta.label}
             </Button>
             {secondaryCta && (
@@ -94,6 +98,29 @@ export function PageHero({
             )}
           </motion.div>
         </div>
+
+        {image && (
+          <motion.div
+            initial={{ opacity: 0, y: 24, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease }}
+            className="relative hidden pr-4 pb-4 sm:block"
+          >
+            <div className="absolute right-0 bottom-0 h-2/3 w-2/3 rounded-2xl bg-primary-600" aria-hidden="true" />
+            <div className="relative overflow-hidden rounded-2xl border-[6px] border-white/10 bg-navy-800 shadow-2xl shadow-black/40">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={image}
+                  alt={imageAlt}
+                  fill
+                  preload
+                  sizes="(min-width: 1024px) 560px, 90vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </motion.div>
+        )}
       </Container>
     </section>
   );

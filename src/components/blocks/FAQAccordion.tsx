@@ -13,53 +13,56 @@ export function FAQAccordion({ items }: { items: FAQItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="border-t border-ink-200">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
+        const id = `faq-${index}`;
         return (
-          <motion.div
-            key={item.question}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.4, delay: index * 0.04 }}
-            className={`overflow-hidden rounded-2xl border transition-colors duration-300 ${
-              isOpen
-                ? "border-primary-200 bg-gradient-to-br from-primary-50/70 to-white shadow-sm shadow-primary-600/[0.06]"
-                : "border-ink-200 bg-white hover:border-ink-300"
-            }`}
-          >
-            <button
-              className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
-              onClick={() => setOpenIndex(isOpen ? null : index)}
-              aria-expanded={isOpen}
-            >
-              <span className={`text-base font-semibold transition-colors ${isOpen ? "text-primary-900" : "text-ink-900"}`}>
-                {item.question}
-              </span>
-              <motion.span
-                animate={{ rotate: isOpen ? 135 : 0 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className={`flex size-7 shrink-0 items-center justify-center rounded-full ${
-                  isOpen ? "bg-primary-600 text-white shadow-sm shadow-primary-600/40" : "bg-ink-100 text-ink-600"
-                }`}
+          <div key={item.question} className="border-b border-ink-200">
+            <h3>
+              <button
+                type="button"
+                id={`${id}-q`}
+                aria-expanded={isOpen}
+                aria-controls={`${id}-a`}
+                onClick={() => setOpenIndex(isOpen ? null : index)}
+                className="group flex w-full items-center justify-between gap-6 py-5 text-left"
               >
-                <Plus className="size-4" aria-hidden="true" />
-              </motion.span>
-            </button>
+                <span
+                  className={`font-display text-base font-bold transition-colors sm:text-[17px] ${
+                    isOpen ? "text-primary-700" : "text-ink-950 group-hover:text-primary-700"
+                  }`}
+                >
+                  {item.question}
+                </span>
+                <span
+                  className={`flex size-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                    isOpen
+                      ? "rotate-45 border-primary-600 bg-primary-600 text-white"
+                      : "border-ink-200 text-primary-600 group-hover:border-primary-300"
+                  }`}
+                >
+                  <Plus className="size-4" aria-hidden="true" />
+                </span>
+              </button>
+            </h3>
             <AnimatePresence initial={false}>
               {isOpen && (
                 <motion.div
+                  id={`${id}-a`}
+                  role="region"
+                  aria-labelledby={`${id}-q`}
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  className="overflow-hidden"
                 >
-                  <p className="px-6 pb-5 text-sm leading-relaxed text-ink-600">{item.answer}</p>
+                  <p className="max-w-2xl pr-12 pb-6 text-[15px] leading-relaxed text-ink-600">{item.answer}</p>
                 </motion.div>
               )}
             </AnimatePresence>
-          </motion.div>
+          </div>
         );
       })}
     </div>

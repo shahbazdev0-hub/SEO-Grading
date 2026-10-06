@@ -1,6 +1,5 @@
 import { LucideIcon } from "lucide-react";
 import { RevealGroup, RevealItem } from "../ui/Reveal";
-import { SpotlightCard } from "../ui/SpotlightCard";
 
 export interface FeatureItem {
   icon: LucideIcon;
@@ -8,12 +7,15 @@ export interface FeatureItem {
   description: string;
 }
 
+/** Bordered feature grid — cells share hairline borders, numbered in the corner. */
 export function IconFeatureGrid({
   items,
   columns = 3,
+  dark = false,
 }: {
   items: FeatureItem[];
   columns?: 2 | 3 | 4;
+  dark?: boolean;
 }) {
   const colClasses =
     columns === 4
@@ -22,22 +24,37 @@ export function IconFeatureGrid({
         ? "sm:grid-cols-2"
         : "sm:grid-cols-2 lg:grid-cols-3";
 
+  const border = dark ? "border-white/12" : "border-ink-200";
+
   return (
-    <RevealGroup className={`grid grid-cols-1 gap-5 ${colClasses}`}>
-      {items.map((item) => (
-        <RevealItem key={item.title}>
-          <SpotlightCard
-            spotlightColor="rgba(37,99,235,0.1)"
-            className="group h-full rounded-2xl border border-ink-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary-200/80 hover:shadow-xl hover:shadow-primary-600/[0.08]"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600 transition-all duration-300 group-hover:-rotate-6 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-primary-500 group-hover:to-primary-700 group-hover:text-white group-hover:shadow-lg group-hover:shadow-primary-600/30">
-                <item.icon className="size-5" aria-hidden="true" />
-              </div>
-              <h3 className="text-base font-semibold text-ink-900">{item.title}</h3>
-            </div>
-            <p className="mt-3 text-sm leading-relaxed text-ink-600">{item.description}</p>
-          </SpotlightCard>
+    <RevealGroup
+      className={`grid grid-cols-1 overflow-hidden rounded-xl border-t border-l ${border} ${colClasses} ${dark ? "" : "bg-white"}`}
+    >
+      {items.map((item, index) => (
+        <RevealItem
+          key={item.title}
+          className={`group relative border-r border-b p-6 transition-colors duration-300 sm:p-7 ${border} ${
+            dark ? "hover:bg-white/[0.04]" : "hover:bg-mist"
+          }`}
+        >
+          <div className="flex items-start justify-between">
+            <span
+              className={`flex size-11 items-center justify-center rounded-lg transition-all duration-300 ease-out-soft group-hover:-translate-y-0.5 ${
+                dark
+                  ? "bg-white/[0.06] text-primary-300 group-hover:bg-primary-600 group-hover:text-white"
+                  : "bg-primary-50 text-primary-600 group-hover:bg-primary-600 group-hover:text-white"
+              }`}
+            >
+              <item.icon className="size-5" aria-hidden="true" />
+            </span>
+            <span className={`font-mono text-xs ${dark ? "text-primary-300" : "text-primary-600"}`}>
+              {String(index + 1).padStart(2, "0")}
+            </span>
+          </div>
+          <h3 className={`mt-5 text-lg font-bold ${dark ? "text-white" : "text-ink-950"}`}>{item.title}</h3>
+          <p className={`mt-2 text-[15px] leading-relaxed ${dark ? "text-ink-300" : "text-ink-600"}`}>
+            {item.description}
+          </p>
         </RevealItem>
       ))}
     </RevealGroup>

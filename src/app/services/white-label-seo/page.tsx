@@ -33,6 +33,7 @@ import { FAQSection } from "@/components/blocks/FAQSection";
 import { CTASection } from "@/components/blocks/CTASection";
 import { RelatedServices } from "@/components/blocks/RelatedServices";
 import { jsonLdScript, serviceSchema, breadcrumbSchema } from "@/lib/schema";
+import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
 
 const title = "White Label SEO Services | Scalable Fulfillment for Agencies";
@@ -94,7 +95,7 @@ const chooseFulfillmentPartner = [
   { icon: MessageCircle, title: "Communication", description: "Good communication avoids misunderstandings, missed deadlines, and rework." },
   { icon: FileText, title: "Reporting", description: "Reports should be easy to read and simple to present to your account managers." },
   { icon: TrendingUp, title: "Scalability", description: "The partner should add campaigns as your agency continues to grow." },
-  { icon: SlidersHorizontal, title: "Flexibility", description: "Packages should adapt — not every client fits the same fixed offer." },
+  { icon: SlidersHorizontal, title: "Flexibility", description: "Packages should adapt not every client fits the same fixed offer." },
   { icon: Eye, title: "Transparency", description: "You should know exactly what tasks are being done and how success is measured." },
   { icon: ShieldCheck, title: "Brand Protection", description: "The fulfillment model should let your agency own the front-end client experience." },
 ];
@@ -146,20 +147,22 @@ export default function WhiteLabelSeoPage() {
           { name: "Services", href: "/#services" },
           { name: "White Label SEO", href: "/services/white-label-seo" },
         ]}
+        image={images.agencyTeam}
+        imageAlt="Agency team collaborating around a table"
       />
 
       <Section>
         <Prose>
           <p>
             In this model, we do the SEO work and your agency delivers it under your own brand.
-            Take a web design agency whose clients ask for SEO after launch — rather than hiring a
+            Take a web design agency whose clients ask for SEO after launch rather than hiring a
             technical SEO specialist, content strategist, link-building expert, and campaign
             manager, the agency can outsource to a fulfillment team instead.
           </p>
           <p>
-            The client relationship stays entirely with your agency. We handle the back-end work —
+            The client relationship stays entirely with your agency. We handle the back-end work
             keyword research, technical SEO, content, link building, reporting, and ongoing
-            campaign refinements — giving you access to specialized expertise while you control
+            campaign refinements giving you access to specialized expertise while you control
             how services are marketed and delivered.
           </p>
         </Prose>
@@ -205,7 +208,7 @@ export default function WhiteLabelSeoPage() {
         <SectionHeading
           eyebrow="Comparison"
           title="White Label SEO vs. In-House SEO"
-          description="Both models can work — but they suit different business situations. The white-label approach is particularly attractive for agencies expanding gradually or testing demand before major staff investment."
+          description="Both models can work but they suit different business situations. The white-label approach is particularly attractive for agencies expanding gradually or testing demand before major staff investment."
         />
         <ComparisonTable columns={["Factor", "White Label Model", "In-House Team"]} rows={comparisonRows} />
       </Section>
@@ -214,7 +217,7 @@ export default function WhiteLabelSeoPage() {
         <SectionHeading
           eyebrow="Choosing a Partner"
           title="How to Choose the Right SEO Fulfillment Partner"
-          description="Choosing a fulfillment partner is about more than monthly cost — quality reflects directly on your agency and your ability to retain clients."
+          description="Choosing a fulfillment partner is about more than monthly cost quality reflects directly on your agency and your ability to retain clients."
         />
         <IconFeatureGrid items={chooseFulfillmentPartner} columns={4} />
       </Section>

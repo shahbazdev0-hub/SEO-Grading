@@ -1,50 +1,28 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { SpotlightCard } from "../ui/SpotlightCard";
+import { RevealGroup, RevealItem } from "../ui/Reveal";
 
 export interface ProcessStep {
   title: string;
   description: string;
 }
 
+/** Numbered process rows: big step number, title, description — separated by hairlines. */
 export function ProcessSteps({ steps }: { steps: ProcessStep[] }) {
   return (
-    <div className="relative mx-auto w-full max-w-3xl">
-      <div className="absolute top-2 bottom-2 left-[21px] w-px bg-ink-200" aria-hidden="true" />
-      <motion.div
-        className="absolute top-2 left-[21px] w-px origin-top bg-gradient-to-b from-primary-500 via-accent-500 to-violet-500"
-        style={{ bottom: "0.5rem" }}
-        initial={{ scaleY: 0 }}
-        whileInView={{ scaleY: 1 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-        aria-hidden="true"
-      />
-
-      <div className="flex flex-col gap-5">
-        {steps.map((step, index) => (
-          <motion.div
-            key={step.title}
-            initial={{ opacity: 0, x: -12, filter: "blur(4px)" }}
-            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex gap-5 sm:gap-6"
-          >
-            <div className="relative z-10 flex size-11 shrink-0 items-center justify-center rounded-full border-2 border-primary-200 bg-white text-sm font-bold text-primary-700 shadow-sm">
-              {String(index + 1).padStart(2, "0")}
-            </div>
-            <SpotlightCard
-              spotlightColor="rgba(37,99,235,0.08)"
-              className="mb-1 flex-1 rounded-2xl border border-ink-200 bg-white p-5 transition-all duration-300 hover:border-primary-200/80 hover:shadow-lg hover:shadow-primary-600/[0.08] sm:p-6"
-            >
-              <h3 className="text-base font-semibold text-ink-900">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-600">{step.description}</p>
-            </SpotlightCard>
-          </motion.div>
-        ))}
-      </div>
-    </div>
+    <RevealGroup className="border-t border-ink-200">
+      {steps.map((step, index) => (
+        <RevealItem
+          key={step.title}
+          className="group grid grid-cols-[3.5rem_1fr] gap-x-4 gap-y-2 border-b border-ink-200 py-6 transition-colors duration-300 sm:grid-cols-[5rem_1fr] sm:py-7 lg:grid-cols-[7rem_minmax(0,0.9fr)_minmax(0,1.3fr)] lg:gap-x-8"
+        >
+          <span className="row-span-2 font-display text-4xl leading-none font-extrabold text-primary-100 transition-colors duration-300 group-hover:text-primary-600 sm:text-5xl lg:row-span-1">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <h3 className="self-center text-lg font-bold text-ink-950 sm:text-xl lg:self-start lg:pt-1">
+            {step.title}
+          </h3>
+          <p className="text-[15px] leading-relaxed text-ink-600 lg:pt-1.5">{step.description}</p>
+        </RevealItem>
+      ))}
+    </RevealGroup>
   );
 }

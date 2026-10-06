@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 import { Reveal } from "./Reveal";
+import { Eyebrow } from "./Eyebrow";
+import { withHighlight } from "./withHighlight";
 
 export function SectionHeading({
   eyebrow,
@@ -7,6 +9,9 @@ export function SectionHeading({
   description,
   align = "left",
   as = "h2",
+  dark = false,
+  highlight,
+  action,
   className = "",
 }: {
   eyebrow?: string;
@@ -14,30 +19,48 @@ export function SectionHeading({
   description?: ReactNode;
   align?: "left" | "center";
   as?: "h1" | "h2" | "h3";
+  dark?: boolean;
+  /** Phrase inside `title` to highlight. Defaults to the closing words; `false` disables. */
+  highlight?: string | false;
+  /** Optional element (e.g. a link) shown opposite a left-aligned heading on large screens. */
+  action?: ReactNode;
   className?: string;
 }) {
   const Heading = as;
-  const alignClasses = align === "center" ? "text-center items-center mx-auto" : "text-left";
+  const centered = align === "center";
+
+  const block = (
+    <div
+      className={`flex max-w-3xl flex-col gap-4 ${centered ? "mx-auto items-center text-center" : ""}`}
+    >
+      {eyebrow && <Eyebrow dark={dark}>{eyebrow}</Eyebrow>}
+      <Heading
+        className={`text-balance text-[2rem] font-extrabold leading-[1.12] sm:text-[2.5rem] lg:text-[2.85rem] ${
+          dark ? "text-white" : "text-ink-950"
+        }`}
+      >
+        {withHighlight(title, highlight)}
+      </Heading>
+      {description && (
+        <p
+          className={`max-w-2xl text-base leading-relaxed sm:text-[17px] ${dark ? "text-ink-300" : "text-ink-600"}`}
+        >
+          {description}
+        </p>
+      )}
+    </div>
+  );
 
   return (
-    <Reveal>
-      <div className={`flex max-w-2xl flex-col gap-4 ${alignClasses} ${className}`}>
-        {eyebrow && (
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary-100 bg-primary-50 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary-700">
-            <span className="relative flex size-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-500 opacity-75" />
-              <span className="relative inline-flex size-1.5 rounded-full bg-primary-600" />
-            </span>
-            {eyebrow}
-          </span>
-        )}
-        <Heading className="text-balance text-4xl font-bold tracking-tight text-ink-900 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
-          {title}
-        </Heading>
-        {description && (
-          <p className="text-balance text-lg leading-relaxed text-ink-600">{description}</p>
-        )}
-      </div>
+    <Reveal className={className}>
+      {action && !centered ? (
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          {block}
+          <div className="shrink-0">{action}</div>
+        </div>
+      ) : (
+        block
+      )}
     </Reveal>
   );
 }

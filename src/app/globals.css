@@ -2,43 +2,47 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a;
+  --foreground: #0a1631;
 
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
+  --color-primary-50: #eef3fe;
+  --color-primary-100: #dce6fd;
+  --color-primary-200: #bfd1fb;
+  --color-primary-300: #93b1f8;
+  --color-primary-400: #5f88f2;
+  --color-primary-500: #3a68ec;
+  --color-primary-600: #1f4fe0;
+  --color-primary-700: #1a40b8;
+  --color-primary-800: #1b3793;
+  --color-primary-900: #1b3174;
 
-  --color-ink-950: #070c1a;
-  --color-ink-900: #0f172a;
-  --color-ink-800: #1e293b;
-  --color-ink-700: #334155;
-  --color-ink-600: #475569;
-  --color-ink-500: #64748b;
-  --color-ink-400: #94a3b8;
-  --color-ink-300: #cbd5e1;
-  --color-ink-200: #e2e8f0;
-  --color-ink-100: #f1f5f9;
-  --color-ink-50: #f8fafc;
+  --color-ink-950: #0a1631;
+  --color-ink-900: #0f1d3d;
+  --color-ink-800: #1e2b4a;
+  --color-ink-700: #334162;
+  --color-ink-600: #4a5775;
+  --color-ink-500: #67728c;
+  --color-ink-400: #97a0b5;
+  --color-ink-300: #c7cddb;
+  --color-ink-200: #e1e6ef;
+  --color-ink-100: #eef1f6;
+  --color-ink-50: #f7f9fc;
 
-  --color-accent-400: #38bdf8;
-  --color-accent-500: #0ea5e9;
-  --color-violet-400: #a78bfa;
-  --color-violet-500: #8b5cf6;
+  --color-navy-950: #050d1f;
+  --color-navy-900: #0a1631;
+  --color-navy-800: #12234a;
+  --color-navy-700: #1a2f5e;
+  --color-mist: #f1f5fd;
   --color-success-500: #10b981;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-display-face);
+  --font-mono: var(--font-jetbrains);
 
   --color-primary-50: var(--color-primary-50);
   --color-primary-100: var(--color-primary-100);
@@ -63,20 +67,18 @@
   --color-ink-100: var(--color-ink-100);
   --color-ink-50: var(--color-ink-50);
 
-  --color-accent-400: var(--color-accent-400);
-  --color-accent-500: var(--color-accent-500);
-  --color-violet-400: var(--color-violet-400);
-  --color-violet-500: var(--color-violet-500);
+  --color-navy-950: var(--color-navy-950);
+  --color-navy-900: var(--color-navy-900);
+  --color-navy-800: var(--color-navy-800);
+  --color-navy-700: var(--color-navy-700);
+  --color-mist: var(--color-mist);
   --color-success-500: var(--color-success-500);
 
-  --animate-marquee: marquee 34s linear infinite;
-  --animate-fade-up: fade-up 0.6s ease-out both;
-  --animate-aurora: aurora-drift 22s ease-in-out infinite;
-  --animate-aurora-slow: aurora-drift 32s ease-in-out infinite reverse;
-  --animate-float: float-y 5s ease-in-out infinite;
-  --animate-shimmer: shimmer 2.4s linear infinite;
-  --animate-gradient-x: gradient-x 6s ease infinite;
-  --animate-spin-slow: spin 14s linear infinite;
+  --ease-out-soft: var(--ease-out-soft);
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee-reverse: marquee 40s linear infinite reverse;
+  --animate-float: float-y 6s ease-in-out infinite;
   --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
 }
 
@@ -89,56 +91,13 @@
   }
 }
 
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes aurora-drift {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(4%, 6%) scale(1.08);
-  }
-  66% {
-    transform: translate(-3%, -4%) scale(0.96);
-  }
-}
-
 @keyframes float-y {
   0%,
   100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-12px) rotate(0.6deg);
-  }
-}
-
-@keyframes shimmer {
-  from {
-    background-position: 200% 0;
-  }
-  to {
-    background-position: -200% 0;
-  }
-}
-
-@keyframes gradient-x {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    transform: translateY(-8px);
   }
 }
 
@@ -146,52 +105,59 @@
   0%,
   100% {
     opacity: 1;
-    transform: scale(1);
   }
   50% {
-    opacity: 0.6;
-    transform: scale(0.85);
+    opacity: 0.45;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  font-feature-settings: "cv11", "ss01";
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display-face), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
 }
 
 ::selection {
-  background: var(--color-primary-100);
-  color: var(--color-primary-900);
+  background: var(--color-primary-600);
+  color: #fff;
 }
 
 .text-balance {
   text-wrap: balance;
 }
 
-/* Grain texture overlay — adds tactile depth without weighing down the page. */
-.bg-grain {
-  position: relative;
-  isolation: isolate;
+/* Heading highlight block (blue box behind key words) — clones per wrapped line. */
+.highlight-box {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background-image: linear-gradient(var(--color-primary-600), var(--color-primary-600));
+  background-repeat: no-repeat;
+  padding: 0.02em 0.22em 0.06em;
+  margin: 0 0.04em;
 }
 
-.bg-grain::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.5;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+/* Subtle grid backdrop used on navy surfaces. */
+.bg-grid-dark {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
 
-/* Gradient text utility — pairs with bg-gradient-to-r in markup via className. */
-.text-gradient {
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+.bg-dots {
+  background-image: radial-gradient(rgba(31, 79, 224, 0.14) 1px, transparent 1px);
+  background-size: 14px 14px;
 }
 
 .mask-fade-x {
@@ -199,11 +165,14 @@ body {
   -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
 }
 
-/* Custom focus ring — replaces the default outline with a brand-consistent glow. */
+.mask-fade-b {
+  mask-image: linear-gradient(180deg, black 55%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, black 55%, transparent);
+}
+
 :focus-visible {
   outline: 2px solid var(--color-primary-500);
   outline-offset: 2px;
-  border-radius: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -24,6 +24,7 @@ import { FAQSection } from "@/components/blocks/FAQSection";
 import { CTASection } from "@/components/blocks/CTASection";
 import { RelatedServices } from "@/components/blocks/RelatedServices";
 import { jsonLdScript, serviceSchema, breadcrumbSchema } from "@/lib/schema";
+import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
 
 const title = "Link Insertion Service | Niche Edits & High-Authority Backlinks";
@@ -112,9 +113,9 @@ const audiences = [
 const faqs = [
   { question: "What is a link insertion service?", answer: "A link insertion service helps businesses get backlinks by inserting their website links into relevant content already available on an external site." },
   { question: "Are niche edits useful for SEO?", answer: "Contextual placements that are genuinely relevant can benefit your overall SEO strategy and connect sites and resources together. It comes down to the importance and relevance of the placement." },
-  { question: "How do I buy niche edits?", answer: "Choose a provider that evaluates websites for relevance, content quality, organic visibility, and placement suitability — rather than selling links based only on domain metrics." },
+  { question: "How do I buy niche edits?", answer: "Choose a provider that evaluates websites for relevance, content quality, organic visibility, and placement suitability rather than selling links based only on domain metrics." },
   { question: "Do you provide link insertion service for agencies?", answer: "Yes. Our link insertion service for agencies is designed to help agencies scale backlink campaigns for their clients while reducing the time required for prospecting and outreach." },
-  { question: "How many backlinks do I need?", answer: "There is no single number that works for every website — the right strategy depends on your niche, competition, current backlink profile, content quality, and SEO goals." },
+  { question: "How many backlinks do I need?", answer: "There is no single number that works for every website the right strategy depends on your niche, competition, current backlink profile, content quality, and SEO goals." },
   { question: "Can link insertion increase organic traffic?", answer: "Links placed on pages with an active, relevant audience can help you gain both SEO visibility and referral traffic." },
 ];
 
@@ -147,20 +148,22 @@ export default function LinkInsertionPage() {
           { name: "Services", href: "/#services" },
           { name: "Link Insertion & Niche Edits", href: "/services/link-insertion-niche-edits" },
         ]}
+        image={images.deskOverhead}
+        imageAlt="Team reviewing content across several laptops"
       />
 
       <Section>
         <Prose>
           <p>
             The more high-quality backlinks your website earns, the more influential you appear
-            to search engines — and the more relevant referral traffic you can attract. But not
+            to search engines and the more relevant referral traffic you can attract. But not
             all backlinks are equal: a link from an irrelevant or low-quality website does little
             for your SEO strategy.
           </p>
           <p>
             We work only with relevant sites, quality content, contextual links, and natural
             anchor text. Whether you&apos;re an SEO agency, SaaS company, e-commerce brand, local
-            business, or online publisher, our niche edits service can be adapted to your needs —
+            business, or online publisher, our niche edits service can be adapted to your needs
             a trustworthy, high-quality way to buy contextual backlinks and grow organic traffic
             over the long run.
           </p>
@@ -171,7 +174,7 @@ export default function LinkInsertionPage() {
         <SectionHeading
           eyebrow="Why Choose Us"
           title="A More Efficient Way to Acquire Backlinks"
-          description="Building quality backlinks manually requires extensive research, outreach, negotiation, and placement verification. We handle the full process from prospecting to placement — focused on relevance, not random volume."
+          description="Building quality backlinks manually requires extensive research, outreach, negotiation, and placement verification. We handle the full process from prospecting to placement focused on relevance, not random volume."
         />
         <ChecklistBlock items={serviceBenefits} />
       </Section>
@@ -180,7 +183,7 @@ export default function LinkInsertionPage() {
         <SectionHeading
           eyebrow="Niche Edits"
           title="Powerful Contextual Backlinks in Existing Content"
-          description="Rather than creating a brand-new article, we identify a relevant existing page and naturally mention your website within it — chosen for topic, context, and relevance to your target page."
+          description="Rather than creating a brand-new article, we identify a relevant existing page and naturally mention your website within it chosen for topic, context, and relevance to your target page."
         />
         <IconFeatureGrid items={nicheEditTargets} />
       </Section>
@@ -191,7 +194,7 @@ export default function LinkInsertionPage() {
             <SectionHeading
               eyebrow="Efficiency"
               title="High-Authority Backlinks Without New Content"
-              description="Traditional guest posting means researching, writing, editing, and waiting for publication. With an existing-content placement, the article is already live — we simply identify the right section to add your link."
+              description="Traditional guest posting means researching, writing, editing, and waiting for publication. With an existing-content placement, the article is already live we simply identify the right section to add your link."
             />
           </div>
           <div className="flex items-center">
@@ -206,7 +209,7 @@ export default function LinkInsertionPage() {
             <SectionHeading
               eyebrow="For Agencies"
               title="Link Insertion Service for Agencies"
-              description="Provide your client's target URLs, preferred topics, anchor text requirements, and campaign goals — we handle prospecting, outreach, placement, and reporting, so your team can focus on:"
+              description="Provide your client's target URLs, preferred topics, anchor text requirements, and campaign goals we handle prospecting, outreach, placement, and reporting, so your team can focus on:"
             />
           </div>
           <div className="flex items-center">
@@ -256,7 +259,7 @@ export default function LinkInsertionPage() {
       <RelatedServices exclude="link-insertion-niche-edits" />
       <CTASection
         title="Start Building Better Backlinks Today"
-        description="Share your web pages, target pages, niche, and link-building objectives — let's build a smarter backlinking strategy for long-term organic progress."
+        description="Share your web pages, target pages, niche, and link-building objectives let's build a smarter backlinking strategy for long-term organic progress."
       />
     </>
   );

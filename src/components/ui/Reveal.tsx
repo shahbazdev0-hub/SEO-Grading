@@ -3,25 +3,25 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export function Reveal({
   children,
   delay = 0,
-  y = 20,
+  y = 18,
   className = "",
-  blur = true,
 }: {
   children: ReactNode;
   delay?: number;
   y?: number;
   className?: string;
-  blur?: boolean;
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y, filter: blur ? "blur(6px)" : "blur(0px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.55, delay, ease }}
       className={className}
     >
       {children}
@@ -32,7 +32,7 @@ export function Reveal({
 export function RevealGroup({
   children,
   className = "",
-  stagger = 0.08,
+  stagger = 0.07,
 }: {
   children: ReactNode;
   className?: string;
@@ -42,13 +42,8 @@ export function RevealGroup({
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
-      variants={{
-        hidden: {},
-        show: {
-          transition: { staggerChildren: stagger },
-        },
-      }}
+      viewport={{ once: true, margin: "-60px" }}
+      variants={{ hidden: {}, show: { transition: { staggerChildren: stagger } } }}
       className={className}
     >
       {children}
@@ -68,13 +63,8 @@ export function RevealItem({
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y, filter: "blur(4px)" },
-        show: {
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-          transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-        },
+        hidden: { opacity: 0, y },
+        show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } },
       }}
       className={className}
     >

@@ -18,6 +18,7 @@ import { FAQSection } from "@/components/blocks/FAQSection";
 import { CTASection } from "@/components/blocks/CTASection";
 import { RelatedServices } from "@/components/blocks/RelatedServices";
 import { jsonLdScript, serviceSchema, breadcrumbSchema } from "@/lib/schema";
+import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
 
 const title = "Technical SEO Services | Crawling, Indexing & Site Speed";
@@ -121,12 +122,14 @@ export default function TechnicalSeoPage() {
       <PageHero
         eyebrow="Technical SEO Services"
         title="Better Rankings, Crawling & User Experience"
-        description="If search engines struggle to crawl, understand, or index your website, even strong pages can fail to perform. We fix the technical foundations that help search engines access your site efficiently — and give visitors a faster, smoother experience."
+        description="If search engines struggle to crawl, understand, or index your website, even strong pages can fail to perform. We fix the technical foundations that help search engines access your site efficiently and give visitors a faster, smoother experience."
         breadcrumbs={[
           { name: "Home", href: "/" },
           { name: "Services", href: "/#services" },
           { name: "Technical SEO", href: "/services/technical-seo" },
         ]}
+        image={images.serverRoom}
+        imageAlt="Engineer reviewing infrastructure in a server room"
       />
 
       <Section>
@@ -158,7 +161,7 @@ export default function TechnicalSeoPage() {
         <SectionHeading
           eyebrow="Our Process"
           title="Our Technical SEO Process"
-          description="Effective optimization starts with understanding the website before making changes — turning technical findings into measurable actions."
+          description="Effective optimization starts with understanding the website before making changes turning technical findings into measurable actions."
           align="left"
         />
         <ProcessSteps steps={processSteps} />
@@ -168,7 +171,7 @@ export default function TechnicalSeoPage() {
         <SectionHeading
           eyebrow="By Website Type"
           title="Technical SEO for Different Website Types"
-          description="Every website has different technical challenges — our approach adapts to the platform and business model."
+          description="Every website has different technical challenges our approach adapts to the platform and business model."
         />
         <IconFeatureGrid items={websiteTypes} />
       </Section>
@@ -177,7 +180,7 @@ export default function TechnicalSeoPage() {
         <SectionHeading
           eyebrow="Agency Packages"
           title="Technical SEO Agency Packages Built Around Your Website"
-          description="Packages are designed around the size, platform, and complexity of each website — from a focused review to ongoing monitoring for large ecommerce projects."
+          description="Packages are designed around the size, platform, and complexity of each website from a focused review to ongoing monitoring for large ecommerce projects."
         />
         <ChecklistBlock items={packageInclusions} />
       </Section>
@@ -186,7 +189,7 @@ export default function TechnicalSeoPage() {
         <SectionHeading
           eyebrow="For Agencies"
           title="White-Label Technical SEO Consultant Services"
-          description="We work behind the scenes under your brand — clear reports, developer-ready recommendations, and flexible support that fits your existing workflow."
+          description="We work behind the scenes under your brand clear reports, developer-ready recommendations, and flexible support that fits your existing workflow."
         />
         <ChecklistBlock items={whiteLabelInclusions} />
         <Prose>

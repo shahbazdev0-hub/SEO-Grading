@@ -27,6 +27,7 @@ import { FAQSection } from "@/components/blocks/FAQSection";
 import { CTASection } from "@/components/blocks/CTASection";
 import { RelatedServices } from "@/components/blocks/RelatedServices";
 import { jsonLdScript, serviceSchema, breadcrumbSchema } from "@/lib/schema";
+import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
 
 const title = "Guest Posting Services | Quality Backlinks";
@@ -41,13 +42,13 @@ export const metadata: Metadata = {
 };
 
 const differentiators = [
-  { icon: Users, title: "Mass Manual Outreach", description: "Real, human outreach to genuine websites and webmasters — never automated blasts." },
+  { icon: Users, title: "Mass Manual Outreach", description: "Real, human outreach to genuine websites and webmasters never automated blasts." },
   { icon: Target, title: "Niche-Specific Selection", description: "Every website is chosen for relevance to your industry, not just its metrics." },
   { icon: PenLine, title: "Original, Quality Writing", description: "Professional writers craft every article for originality and editorial value." },
   { icon: Newspaper, title: "Native Article Placement", description: "Your brand is placed naturally within valuable, newsworthy articles." },
   { icon: ShieldCheck, title: "White-Hat SEO Techniques", description: "Every campaign follows practices that align with Google's quality guidelines." },
   { icon: BarChart3, title: "Transparent Reporting", description: "Clear, honest communication and reporting throughout every campaign." },
-  { icon: Settings2, title: "Customized Campaigns", description: "Every campaign is built around your goals — never a standard, one-size package." },
+  { icon: Settings2, title: "Customized Campaigns", description: "Every campaign is built around your goals never a standard, one-size package." },
 ];
 
 const includedRows = [
@@ -69,7 +70,7 @@ const includedRows = [
     icon: Handshake,
     title: "Personalized Outreach Campaigns",
     description:
-      "Quality publishers are found through excellent communication and authentic relationships. Our outreach specialists contact website owners, negotiate publishing opportunities, and handle every conversation on your behalf. Manual outreach — instead of automated software — means higher acceptance rates and placements on real websites.",
+      "Quality publishers are found through excellent communication and authentic relationships. Our outreach specialists contact website owners, negotiate publishing opportunities, and handle every conversation on your behalf. Manual outreach instead of automated software means higher acceptance rates and placements on real websites.",
   },
   {
     icon: PenTool,
@@ -88,7 +89,7 @@ const includedRows = [
     icon: Link2,
     title: "Natural Backlink Placement",
     description:
-      "Backlinks are woven naturally into the content rather than reading like an advertisement. Our writers place in-depth, relevant, contextual backlinks using sensible, context-appropriate anchor text — improving on-page SEO while enhancing the reader's experience.",
+      "Backlinks are woven naturally into the content rather than reading like an advertisement. Our writers place in-depth, relevant, contextual backlinks using sensible, context-appropriate anchor text improving on-page SEO while enhancing the reader's experience.",
   },
   {
     icon: ClipboardCheck,
@@ -100,7 +101,7 @@ const includedRows = [
     icon: BarChart3,
     title: "Campaign Reporting",
     description:
-      "Transparency is a core value. Once your articles are published, you receive a full report with every live URL, publication date, and campaign update — so you always know exactly what has been delivered.",
+      "Transparency is a core value. Once your articles are published, you receive a full report with every live URL, publication date, and campaign update so you always know exactly what has been delivered.",
   },
 ];
 
@@ -143,7 +144,7 @@ const niches = [
 
 const processSteps = [
   { title: "Understanding Your Goals", description: "Every campaign begins with an extensive consultation covering your business model, audience, industry, competitors, and SEO objectives." },
-  { title: "Finding High-Quality Websites", description: "Our outreach specialists research niche-relevant websites against a strict quality criteria — well beyond DR or DA alone." },
+  { title: "Finding High-Quality Websites", description: "Our outreach specialists research niche-relevant websites against a strict quality criteria well beyond DR or DA alone." },
   { title: "Manual Outreach", description: "We contact publishers directly, building authentic relationships with editors and site owners for compelling opportunities." },
   { title: "Creating High-Quality Content", description: "Our editors craft informative, engaging, SEO-friendly articles that respect each publisher's editorial guidelines." },
   { title: "Editorial Review & Publication", description: "We coordinate with editors on revisions and formatting, then move to publication once final approval is given." },
@@ -194,12 +195,14 @@ export default function GuestPostingPage() {
       <PageHero
         eyebrow="Guest Posting Services"
         title="Build Authority, Earn Quality Backlinks & Drive Real SEO Results"
-        description="Through manual outreach and high-end content creation, we help businesses, agencies, startups, bloggers, and SEO professionals earn premium editorial backlinks — customized for your niche so every link actually makes sense for SEO."
+        description="Through manual outreach and high-end content creation, we help businesses, agencies, startups, bloggers, and SEO professionals earn premium editorial backlinks customized for your niche so every link actually makes sense for SEO."
         breadcrumbs={[
           { name: "Home", href: "/" },
           { name: "Services", href: "/#services" },
           { name: "Guest Posting", href: "/services/guest-posting" },
         ]}
+        image={images.laptopTyping}
+        imageAlt="Writer drafting a guest post on a laptop"
       />
 
       <Section>
@@ -207,7 +210,7 @@ export default function GuestPostingPage() {
           <p>
             In this highly competitive digital landscape, growing a website takes more than
             publishing great content. To rank higher, build visibility, and earn long-term
-            authority, your site needs high-quality links from relevant, respected websites —
+            authority, your site needs high-quality links from relevant, respected websites
             which is exactly what our guest posting services are built to deliver.
           </p>
           <p>
@@ -218,7 +221,7 @@ export default function GuestPostingPage() {
           </p>
           <p>
             From improving keyword rankings to building domain authority, driving relevant
-            traffic, and establishing a strong online reputation — our guest post service handles
+            traffic, and establishing a strong online reputation our guest post service handles
             everything from audience research to content creation, outreach, and publication, so
             you can grow your business with confidence.
           </p>
@@ -229,7 +232,7 @@ export default function GuestPostingPage() {
         <SectionHeading
           eyebrow="Why Choose Us"
           title="The Right Choice for Your Business"
-          description="We never rely on shortcuts or cheap backlinks. Every guest post campaign is a well-thought-out strategy that adheres to industry standards and Google's quality guidelines — analyzed against your industry, target market, and SEO goals for a stronger, more sustainable backlink profile."
+          description="We never rely on shortcuts or cheap backlinks. Every guest post campaign is a well-thought-out strategy that adheres to industry standards and Google's quality guidelines analyzed against your industry, target market, and SEO goals for a stronger, more sustainable backlink profile."
         />
         <IconFeatureGrid items={differentiators} />
       </Section>
@@ -238,7 +241,7 @@ export default function GuestPostingPage() {
         <SectionHeading
           eyebrow="What's Included"
           title="Everything in Our Professional Guest Posting Service"
-          description="We manage every aspect of the campaign — from identifying relevant websites to publishing the highest-quality content — with care and precision."
+          description="We manage every aspect of the campaign from identifying relevant websites to publishing the highest-quality content with care and precision."
         />
         <FeatureRows rows={includedRows} />
       </Section>
@@ -247,7 +250,7 @@ export default function GuestPostingPage() {
         <SectionHeading
           eyebrow="Long-Term Growth"
           title="Unlock Long-Term SEO Growth With High-Quality Guest Posting"
-          description="We connect your content with high-quality, relevant websites rather than chasing hundreds of low-quality links — every placement is chosen to deliver the best SEO value while putting your name in front of a wider audience."
+          description="We connect your content with high-quality, relevant websites rather than chasing hundreds of low-quality links every placement is chosen to deliver the best SEO value while putting your name in front of a wider audience."
         />
         <IconFeatureGrid items={growthBenefits} columns={4} />
       </Section>
@@ -260,14 +263,14 @@ export default function GuestPostingPage() {
         />
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
           <div>
-            <h3 className="text-lg font-semibold text-ink-900">Our Quality Evaluation Includes</h3>
+            <h3 className="text-xl font-bold text-ink-950">Our Quality Evaluation Includes</h3>
             <div className="mt-5">
               <ChecklistBlock items={qualityEvaluation} />
             </div>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-ink-900">White-Hat Link Building Process</h3>
-            <p className="mt-2 text-sm leading-relaxed text-ink-600">
+            <h3 className="text-xl font-bold text-ink-950">White-Hat Link Building Process</h3>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink-600">
               Every campaign follows ethical SEO practices aligned with Google&apos;s recommendations.
             </p>
             <div className="mt-5">
@@ -287,12 +290,13 @@ export default function GuestPostingPage() {
           {niches.map((niche) => (
             <span
               key={niche}
-              className="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm font-medium text-ink-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-300 hover:text-primary-700 hover:shadow-sm"
+              className="inline-flex items-center gap-2 rounded-lg border border-ink-200 bg-white px-4 py-2.5 font-display text-sm font-bold text-ink-950 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-600 hover:text-primary-700"
             >
+              <span className="size-1.5 rounded-full bg-primary-600" aria-hidden="true" />
               {niche}
             </span>
           ))}
-          <span className="rounded-full border border-dashed border-primary-300 bg-primary-50 px-4 py-2 text-sm font-medium text-primary-700">
+          <span className="inline-flex items-center rounded-lg border border-primary-600 bg-primary-600 px-4 py-2.5 font-display text-sm font-bold text-white">
             + many more
           </span>
         </div>
@@ -302,7 +306,7 @@ export default function GuestPostingPage() {
         <SectionHeading
           eyebrow="Our Process"
           title="From Outreach to Publication"
-          description="A simple, proven process that takes every campaign from strategy to a live, reported placement — streamlined from start to finish."
+          description="A simple, proven process that takes every campaign from strategy to a live, reported placement streamlined from start to finish."
         />
         <ProcessSteps steps={processSteps} />
       </Section>
@@ -311,7 +315,7 @@ export default function GuestPostingPage() {
         <SectionHeading
           eyebrow="Why Businesses Trust Us"
           title="Your Preferred Guest Post Agency"
-          description="We don't believe guest posting is only about backlinks — it's about making connections, earning respect for your brand, and creating lasting authority."
+          description="We don't believe guest posting is only about backlinks it's about making connections, earning respect for your brand, and creating lasting authority."
         />
         <ChecklistBlock items={whatSetsUsApart} />
       </Section>
@@ -321,7 +325,7 @@ export default function GuestPostingPage() {
       <RelatedServices exclude="guest-posting" />
       <CTASection
         title="Ready to Earn Backlinks That Actually Move the Needle?"
-        description="Tell us about your niche, target pages, and goals — we'll build a guest posting campaign designed around real SEO value."
+        description="Tell us about your niche, target pages, and goals we'll build a guest posting campaign designed around real SEO value."
       />
     </>
   );
