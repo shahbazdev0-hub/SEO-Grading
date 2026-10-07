@@ -110,7 +110,7 @@ export function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.18, ease }}
-                        className="absolute left-1/2 top-full w-[680px] -translate-x-1/2 pt-4"
+                        className="absolute left-0 top-full w-[680px] max-w-[calc(100vw-2rem)] pt-4"
                       >
                         <div className="overflow-hidden rounded-xl border border-ink-200 bg-white shadow-2xl shadow-ink-950/20">
                           <div className="grid grid-cols-2 gap-1 p-2.5">
